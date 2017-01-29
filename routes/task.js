@@ -14,7 +14,7 @@ router.get('/',function(req,res){
       done();
     } else {
      client.query(
-       'select id,task,is_complete from task;'
+       'select id,task,is_complete from task order by is_complete;'
       ,
       function(err,result){
         done();
