@@ -1,22 +1,13 @@
 body {
 
-border: 1px solid;
-width:800px;
+/*border: 1px solid;*/
+/*width:800px;*/
 }
 
-.table{
-  display: table;
-  width:100%;
-  border-collapse:collapse;
+.container{
+  border: 1px solid;
 }
-  .table-row{
-    display: table-row;
-  }
-    .table-cell, .table-head{
-      display: table-cell;
-      padding:1em;
-      border:#f0f0f0 1px solid;
-    }
-    .table-head{
-        font-weight:bold;
-    }
+
+.deletetask{
+  display:none;
+}
