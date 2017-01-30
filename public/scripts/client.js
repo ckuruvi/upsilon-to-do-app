@@ -91,8 +91,8 @@ function displayTasks(tasklist){
 
 
     var $td=$('<td class="col-md-2"><button id="'+obj.id+'" class="delete btn btn-xs btn-info">Delete</button></td>');
-    var $div=$('<div id="'+obj.id+'" class="deletetask" >'+
-    '<span>are you sure?</span>'+
+    var $div=$('<div id="'+obj.id+'" class="deletetask" ><br>'+
+    '<span>Are you sure?</span>'+
     '<button id="'+obj.id+'" class="yes btn btn-xs btn-info">Yes</button>'+
     '<span>&nbsp&nbsp</span>'+
     '<button id="'+obj.id+'" class="no btn btn-xs btn-info">No</button>'+
