@@ -79,7 +79,7 @@ function getTasks(list){
 // this function displays all tasks retrieved from the ajax call inside getTasks on the DOM .
 function displayTasks(tasklist){
   $('#taskList').empty();
-
+  $("#addtaskform").trigger('reset');
   tasklist.forEach(function(obj){
     var $tr=$('<tr></tr>');
     $tr.append('<td class="col-md-3"><span>'+obj.task+'</span></td>')
