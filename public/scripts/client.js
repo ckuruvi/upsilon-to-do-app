@@ -84,17 +84,17 @@ function displayTasks(tasklist){
   tasklist.forEach(function(obj){
     var $div = $('<div class="row text-center"></div>');
     var $form = $('<form></form>');
-    $form.append('<div class="col-md-3"><span>'+obj.task+'</span></div>');
+    $form.append('<div class="col-md-4"><span>'+obj.task+'</span></div>');
     if(obj.is_complete){
-      $form.append('<div class="col-md-2"> <button class="btn-success"><span class="glyphicon glyphicon-ok"></span>Completed</button></div>');
+      $form.append('<div class="col-md-2"> <button class=" btn btn-success btn-xs disabled"><span class="glyphicon glyphicon-ok"></span>Completed</button></div>');
     } else {
-      $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="complete btn-info">Complete</button></div>');
+      $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="complete btn btn-xs btn-info">Complete</button></div>');
     }
-    $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="delete btn-info">Delete</button></div>');
+    $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="delete btn btn-xs btn-info">Delete</button></div>');
     //delete check start
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><span>are you sure?</span></div>');
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="yes btn-info">Yes</button></div>');
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="no btn-info">No</button></div>');
+    $form.append('<div id="'+obj.id+'" class="deletetask col-md-2"><span>are you sure?</span></div>');
+    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="yes btn btn-xs btn-info">Yes</button></div>');
+    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="no btn btn-xs btn-info">No</button></div>');
 
     //delete check end
     $div.append($form);
