@@ -15,7 +15,7 @@ function hideDeleteCheck(event){
   event.preventDefault();
   var taskId = $(this).attr('id')
   var temp='#'+taskId+'.deletetask';
-  $(temp).hide();
+  $(temp).slideUp();
 }
 
 // this function displays the 'are you sure?yes/no' message
@@ -24,7 +24,7 @@ function deleteCheck(event){
   event.preventDefault();
   var taskId = $(this).attr('id')
   var temp='#'+taskId+'.deletetask';
-  $(temp).show();
+  $(temp).slideDown();
 }
 
 
@@ -76,29 +76,29 @@ function getTasks(list){
   });
 }
 
-
 // this function displays all tasks retrieved from the ajax call inside getTasks on the DOM .
 function displayTasks(tasklist){
-  // console.log('inside function displayTasks',tasklist);
   $('#taskList').empty();
+
   tasklist.forEach(function(obj){
-    var $div = $('<div class="row text-center"></div>');
-    var $form = $('<form></form>');
-    $form.append('<div class="col-md-4"><span>'+obj.task+'</span></div>');
+    var $tr=$('<tr></tr>');
+    $tr.append('<td class="col-md-3"><span>'+obj.task+'</span></td>')
     if(obj.is_complete){
-      $form.append('<div class="col-md-2"> <button class=" btn btn-success btn-xs disabled"><span class="glyphicon glyphicon-ok"></span>Completed</button></div>');
-    } else {
-      $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="complete btn btn-xs btn-info">Complete</button></div>');
+      $tr.append('<td class="col-md-2"> <button class=" btn btn-success btn-xs disabled"><span class="glyphicon glyphicon-ok"></span>Completed</button></div>');
+    } else{
+      $tr.append('<td class="col-md-2"><button id="'+obj.id+'" class="complete btn btn-xs btn-info">Complete</button></td>');
     }
-    $form.append('<div class="col-md-2"><button id="'+obj.id+'" class="delete btn btn-xs btn-info">Delete</button></div>');
-    //delete check start
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-2"><span>are you sure?</span></div>');
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="yes btn btn-xs btn-info">Yes</button></div>');
-    $form.append('<div id="'+obj.id+'" class="deletetask col-md-1"><button id="'+obj.id+'" class="no btn btn-xs btn-info">No</button></div>');
 
-    //delete check end
-    $div.append($form);
-    $('#taskList').append($div);
+
+    var $td=$('<td class="col-md-2"><button id="'+obj.id+'" class="delete btn btn-xs btn-info">Delete</button></td>');
+    var $div=$('<div id="'+obj.id+'" class="deletetask" >'+
+    '<span>are you sure?</span>'+
+    '<button id="'+obj.id+'" class="yes btn btn-xs btn-info">Yes</button>'+
+    '<span>&nbsp&nbsp</span>'+
+    '<button id="'+obj.id+'" class="no btn btn-xs btn-info">No</button>'+
+    '</div>');
+    $td.append($div);
+    $tr.append($td);
+    $('#taskList').append($tr);
   });
-
-}  // end of displayTasks function
+}
