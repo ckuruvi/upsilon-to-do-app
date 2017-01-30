@@ -84,7 +84,7 @@ function displayTasks(tasklist){
     var $tr=$('<tr></tr>');
     $tr.append('<td class="col-md-3"><span>'+obj.task+'</span></td>')
     if(obj.is_complete){
-      $tr.append('<td class="col-md-2"> <button class=" btn btn-success btn-xs disabled"><span class="glyphicon glyphicon-ok"></span>Completed</button></div>');
+      $tr.append('<td class="col-md-2"> <button class=" btn btn-success btn-xs disabled"><span class="glyphicon glyphicon-ok"></span></button></div>');
     } else{
       $tr.append('<td class="col-md-2"><button id="'+obj.id+'" class="complete btn btn-xs btn-info">Complete</button></td>');
     }
